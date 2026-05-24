@@ -28,7 +28,6 @@
     overflow-x: hidden;
     font-family: 'Roboto', sans-serif;
     color: var(--text-white);
-    overflow-x: hidden;
   }
 
   body {
@@ -116,11 +115,10 @@
   .app {
     position: relative;
     z-index: 2;
-    min-height: 900px;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-    padding: 40px 20px;
+    padding: 28px 20px;
   }
 
   .screen {
@@ -391,8 +389,10 @@
   .sealo-badge a:hover { color: rgba(200,230,255,0.6); }
 
   @media (max-width: 480px) {
-    .card { padding: 28px 20px; }
-    .result-image-wrap { height: 220px; }
+    .card { padding: 22px 16px; }
+    .result-image-wrap { height: 200px; }
+    .hero-image { height: 200px; }
+    .app { padding: 20px 12px; }
   }
 </style>
 </head>
