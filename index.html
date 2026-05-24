@@ -99,13 +99,15 @@
     background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.45), rgba(91,200,240,0.12));
     border: 1px solid rgba(91,200,240,0.35);
     animation: bubbleRise linear infinite;
+    animation-fill-mode: both;
   }
 
   @keyframes bubbleRise {
-    0% { transform: translateY(100vh) translateX(0); opacity: 0; }
-    10% { opacity: 0.85; }
-    90% { opacity: 0.5; }
-    100% { transform: translateY(-100px) translateX(30px); opacity: 0; }
+    0% { transform: translateY(0) translateX(0); opacity: 0; }
+    10% { opacity: 0.5; }
+    25% { opacity: 0.05; }
+    35% { opacity: 0; }
+    100% { transform: translateY(-120vh) translateX(30px); opacity: 0; }
   }
 
   /* Layout */
@@ -648,7 +650,7 @@ function createBubbles() {
       width: ${size}px;
       height: ${size}px;
       left: ${Math.random() * 100}%;
-      bottom: -20px;
+      bottom: 0;
       animation-duration: ${Math.random() * 8 + 5}s;
       animation-delay: ${Math.random() * 12}s;
       opacity: ${Math.random() * 0.4 + 0.3};
