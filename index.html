@@ -25,7 +25,7 @@
   }
 
   html, body {
-    min-height: 100%;
+    min-height: unset;
     font-family: 'Roboto', sans-serif;
     color: var(--text-white);
     overflow-x: hidden;
@@ -116,7 +116,7 @@
   .app {
     position: relative;
     z-index: 2;
-    min-height: 100vh;
+    min-height: unset;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -743,6 +743,24 @@ function retakeQuiz() {
 
 // ─── INIT ────────────────────────────────────────────────────────────────────
 createBubbles();
+</script>
+
+<script>
+// Auto-resize: posts content height to parent frame after every screen change
+function reportHeight() {
+  var h = document.body.scrollHeight;
+  if (window.parent && window.parent !== window) {
+    window.parent.postMessage({ type: 'seal-quiz-height', height: h }, '*');
+  }
+}
+// Patch showScreen to report height after each transition
+var _origShowScreen = showScreen;
+showScreen = function(id) {
+  _origShowScreen(id);
+  setTimeout(reportHeight, 520); // after fadeUp animation (500ms)
+};
+// Also report on load
+window.addEventListener('load', function() { setTimeout(reportHeight, 100); });
 </script>
 </body>
 </html>
