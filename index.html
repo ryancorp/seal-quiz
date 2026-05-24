@@ -733,7 +733,7 @@ function showResult() {
   }
 
   const shareText = encodeURIComponent(`I just found out I'm a ${seal.name}! 🦭 What seal are you? Take the quiz:`);
-  const shareUrl = encodeURIComponent(window.location.href);
+  const shareUrl = encodeURIComponent('https://www.sealo.org/fun-stuff/which-seal-are-you');
   document.getElementById('share-fb').href = `https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`;
   document.getElementById('share-tw').href = `https://twitter.com/intent/tweet?text=${shareText}%20${shareUrl}`;
 
